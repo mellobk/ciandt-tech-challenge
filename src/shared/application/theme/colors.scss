@@ -1,0 +1,16 @@
+@import './mixins.scss';
+
+$primary: rgb(124 1 255);
+$secondary: #0b1d2e;
+$success: #9bddbf;
+$info: #d3dcfc;
+$warning: #fff1db;
+$error: #e30042;
+$black: #1f1f1f;
+$white: #ffffff;
+$fontColor: $secondary;
+$DisabledColor : #b5b5b5;
+
+@include key-value-color('color', 'color');
+@include key-value-color('bg', 'background-color');
+@include key-value-color('border', 'border-color');

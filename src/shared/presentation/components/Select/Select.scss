@@ -1,0 +1,106 @@
+@import "../../../../shared/application/theme/colors.scss";
+
+
+.select-container{
+    position: relative;
+
+    >.title{
+        font-size: 2.5rem;
+        text-align: left;
+        margin-bottom: 1rem;
+        font-weight: 200;
+    }
+
+    &.disabled {
+      color: $DisabledColor;
+    }
+  
+    & > .dropdown-header {
+      border-radius: 5px;
+      height: inherit;
+      display: flex;
+      align-items: center;
+      font-size: 18px;
+      padding: 13px 15px;
+      position: relative;
+      margin-bottom: 1px;
+      border: solid 1px $black;
+      &.focused {
+        border: solid 1px $primary;
+      }
+      &.disabled {
+        border: solid 1px $DisabledColor;
+        color: $DisabledColor;
+      }
+    }
+  
+    & > .icon {
+      position: absolute;
+      top: 46px;
+      right: 16px !important;
+      height: inherit;
+      font-size: 18px;
+      color: $black;
+      transform: rotate(0deg);
+      transition: all 0.5s ease-in-out;
+      &.focused {
+        color: $primary;
+      }
+      &.disabled {
+        color: $DisabledColor;
+      }
+    }
+  
+    & > .icon.open {
+      transform: rotate(180deg);
+    }
+  
+    & > .dropdown-body {
+      padding: 5px;
+      font-size: 18px;
+      display: none;
+  
+      &::-webkit-scrollbar {
+        border-radius: 4px;
+        background-color: $DisabledColor;
+        width: 5px;
+      }
+    }
+  
+    & > .dropdown-body.open {
+      max-height: 207px;
+      overflow: auto;
+      display: block;
+      border: solid 1px $DisabledColor;
+      border-top: none;
+      padding: 0;
+      position: relative;
+  
+      & > .dropdown-item {
+        height: 50px;
+        padding: 0 284px 0 14px;
+        display: flex;
+        align-items: center;
+        border-radius: 2px;
+        &:hover {
+          background-color:$primary;
+          color: $black;
+        }
+      }
+      & > .dropdown-item.selected {
+        color: $primary;
+        &:hover {
+            color: $black;
+          }
+      }
+    }
+    > .footer {
+        > .error {
+          color: #e30042;
+          font-size: 1.5rem;
+          display: flex;
+          align-items: center;
+          margin: 0 0 1rem 0;
+        }
+      }
+}

@@ -1,23 +1,21 @@
-import "./App.css";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import {stepRoutes} from './domains/home/application/constans/stepRoutes'
+import { setTotalStep } from "./domains/home/application/slices/home";
+import Router from "./shared/presentation/Router";
 
-function App() {
+
+const App = () => {
+  const dispatch = useDispatch();
+  useEffect(()=>{
+    dispatch(setTotalStep(stepRoutes)) 
+  },[dispatch])
+ 
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://pokeapi.co/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Gotta Catch'Em All!!!!
-        </a>
-      </header>
-    </div>
+    <>
+      <Router />
+    </>
   );
-}
+};
 
 export default App;

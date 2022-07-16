@@ -1,0 +1,31 @@
+
+@import "../../../../shared/application/theme/colors.scss";
+
+.button-container {
+
+  >button{
+    padding: 5px 10px  ;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: $primary;
+    color: $white;
+
+  }
+  > .title {
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 38px;
+    text-align: center;
+  }
+  > .small {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    margin: 0 22px;
+    padding: 6px 8px;
+  }
+  >.medium{
+    font-size: 24px;
+    padding: 13px 22px;
+  }
+}

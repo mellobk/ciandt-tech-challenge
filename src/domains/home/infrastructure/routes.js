@@ -1,0 +1,13 @@
+export const homeRoute = '/';
+export const personalDataRoute = '/datos-cliente';
+export const emailRoute = '/correo-electronico';
+export const addressRoute = '/direccion';
+export const floorRoute = '/numero-piso';
+export const zonesRoute = '/zonas-comunes';
+export const parkingRoute = '/parqueadero';
+export const priceRoute = '/precio';
+export const pictureRoute = '/foto-inmueble';
+export const elevatorRoute = '/ascensor';
+export const resumeRoute = '/resume-datos';
+export const ThankYouRoute = '/envio-exitoso';
+export default {};
