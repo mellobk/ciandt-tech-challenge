@@ -34,22 +34,6 @@
       }
     }
   
-    & > .icon {
-      position: absolute;
-      top: 46px;
-      right: 16px !important;
-      height: inherit;
-      font-size: 18px;
-      color: $black;
-      transform: rotate(0deg);
-      transition: all 0.5s ease-in-out;
-      &.focused {
-        color: $primary;
-      }
-      &.disabled {
-        color: $DisabledColor;
-      }
-    }
   
     & > .icon.open {
       transform: rotate(180deg);
@@ -75,7 +59,9 @@
       border: solid 1px $DisabledColor;
       border-top: none;
       padding: 0;
-      position: relative;
+      position: absolute;
+      width: 100%;
+      background: white;
   
       & > .dropdown-item {
         height: 50px;
@@ -84,8 +70,9 @@
         align-items: center;
         border-radius: 2px;
         &:hover {
-          background-color:$primary;
+          background-color:$error;
           color: $black;
+          cursor: pointer;
         }
       }
       & > .dropdown-item.selected {
@@ -95,13 +82,4 @@
           }
       }
     }
-    > .footer {
-        > .error {
-          color: #e30042;
-          font-size: 1.5rem;
-          display: flex;
-          align-items: center;
-          margin: 0 0 1rem 0;
-        }
-      }
 }

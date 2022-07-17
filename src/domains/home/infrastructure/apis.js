@@ -10,5 +10,12 @@ export const getPokemos = () => {
 	return fetch(pokemosUrl, requestOptions).then(handleResponse);
 };
 
+export const fetchPokemon = (ulr) => {
+	const requestOptions = {
+		method: 'GET',
+		headers: authHeader(),
+	};
+	return fetch(ulr, requestOptions).then(handleResponse);
+};
 
 export default {};
