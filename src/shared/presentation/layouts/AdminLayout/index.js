@@ -1,20 +1,18 @@
-/* eslint-disable import/no-cycle */
-
+import React from "react";
 import PropTypes from "prop-types";
 
 
-const AdminLayout = () => {
+const AdminLayout = ({children}) => {
 
   return (
-  {}
+  <div className="admin-layout">
+    {children}
+  </div>
   );
 };
 
 AdminLayout.propTypes = {
   children: PropTypes.node,
-  image: PropTypes.string,
-  information: PropTypes.bool,
-  step: PropTypes.number,
 };
 
 export default AdminLayout;
