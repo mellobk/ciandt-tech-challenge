@@ -1,0 +1,8 @@
+@import "../../../../shared/application/theme/animations.scss";
+
+
+.loader{
+  display: flex;
+    justify-content: center;
+  animation: spin 2s linear infinite;
+}

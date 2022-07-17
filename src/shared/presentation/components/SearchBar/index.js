@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import "./SearchBar.scss";
 import Input from "../Input";
@@ -10,19 +10,17 @@ const SearchBar = ({
   className,
   onChangeInput,
   onSelectItem,
+  searchValue
 }) => {
-  const [isOpen, setOpen] = useState(false);
-  useState("");
-
   const handleItemClick = (value) => {
-    setOpen(!isOpen);
     onSelectItem?.(value);
   };
+
 
   return (
     <div className={` select-container ${className} ${disabled && "disabled"}`}>
       {title && <div className="title">{title}</div>}
-      <Input onChange={onChangeInput} />
+      <Input value={searchValue} onChange={onChangeInput} />
       <div className={`dropdown-body ${seuggets?.length && "open"}`}>
         {seuggets?.map((item, key) => (
           <div
@@ -44,6 +42,7 @@ const SearchBar = ({
 SearchBar.propTypes = {
   seuggets: PropTypes.array,
   disabled: PropTypes.bool,
+  searchValue: PropTypes.string,
   onChangeInput: PropTypes.func,
   className: PropTypes.string,
   onSelectItem: PropTypes.func,

@@ -1,8 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import {getPokemos} from "../../infrastructure/apis";
+import {fetchPokemon, getPokemos} from "../../infrastructure/apis";
 
 
-export const getSuggestedPokemos = createAsyncThunk(
+export const getSuggestedPokemons = createAsyncThunk(
 	'home/getSuggestedPokemos',
 	async (_, { rejectWithValue }) => {
 		try {
@@ -14,9 +14,24 @@ export const getSuggestedPokemos = createAsyncThunk(
 	},
 );
 
+
+export const getFetchPokemon = createAsyncThunk(
+	'home/getFetchPokemon',
+	async (url, { rejectWithValue }) => {
+		try {
+			const response = await fetchPokemon(url);
+			return response;
+		} catch (error) {
+			return rejectWithValue(error);
+		}
+	},
+);
+
 export const initialState = {
 suggestedPokemos:[],
+selectedPokemon:{},
 loading:false,
+pokemonLoading:false,
 
 };
 
@@ -26,15 +41,25 @@ const Home = createSlice({
   reducers: {
   },
 	extraReducers: {
-		[getSuggestedPokemos.pending]: (state) => {
+		[getSuggestedPokemons.pending]: (state) => {
 			state.loading = true;
 		},
-		[getSuggestedPokemos.rejected]: (state) => {
+		[getSuggestedPokemons.rejected]: (state) => {
 			state.loading = false;
 		},
-		[getSuggestedPokemos.fulfilled]: (state, { payload }) => {
+		[getSuggestedPokemons.fulfilled]: (state, { payload }) => {
 			state.loading = false; 
 			state.suggestedPokemos = payload.results;
+		},
+		[getFetchPokemon.pending]: (state) => {
+			state.pokemonLoading = true;
+		},
+		[getFetchPokemon.rejected]: (state) => {
+			state.pokemonLoading = false;
+		},
+		[getFetchPokemon.fulfilled]: (state, { payload }) => {
+			state.pokemonLoading = false; 
+			state.selectedPokemon = payload;
 		},
 	}
 });
