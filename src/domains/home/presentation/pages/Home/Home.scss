@@ -1,0 +1,32 @@
+@import "../../../../../shared/application/theme/colors.scss";
+
+
+.home-main-container{
+
+    >.header{
+        background-color: $primary;
+        height:150px;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        width:100%;
+        flex-direction: column;
+
+        >.title{
+            margin-bottom: 10px;
+            font-size:40px;
+            color:$white;
+    }
+}
+    >.cards{
+        margin-top: 100px;
+        display:flex;
+        width:100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+    }
+
+}

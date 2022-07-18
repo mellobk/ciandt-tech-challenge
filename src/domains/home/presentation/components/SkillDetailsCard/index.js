@@ -1,22 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import "./SkillDetailsCard.scss";
+import BarChart from "../../../../../shared/presentation/components/BarChart";
 
 
 const SkillDetailsCard = ({
     stats,
 }) => {
+  
+  const [dataChart , setDataChart] = useState([])
+
+  useEffect(() =>{
+   
+   const labelsStats = stats?.map((value)=>{
+      return {name: value.stat.name,
+              stats: value.base_stat}
+    })
+
+    setDataChart(labelsStats)
+  },[stats])
 
 
   return (
     <div className={`pokemon-skill-container`}>
-      {stats?.map((value, index)=>(
-       <div key={index}> 
-         <div> {value.stat.name} </div>
-         <div> {value.base_stat}</div>
-       </div>
-      ))}
- 
+     <BarChart dataChart={dataChart}/>
     </div>
   );
 };

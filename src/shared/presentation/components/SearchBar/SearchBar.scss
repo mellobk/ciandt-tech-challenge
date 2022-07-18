@@ -1,7 +1,8 @@
 @import "../../../../shared/application/theme/colors.scss";
 
 
-.select-container{
+.search-bar-container{
+    width: 80%;
     position: relative;
 
     >.title{
@@ -62,6 +63,7 @@
       position: absolute;
       width: 100%;
       background: white;
+      z-index: 2;
   
       & > .dropdown-item {
         height: 50px;

@@ -10,7 +10,8 @@ const SearchBar = ({
   className,
   onChangeInput,
   onSelectItem,
-  searchValue
+  searchValue,
+  placeholder
 }) => {
   const handleItemClick = (value) => {
     onSelectItem?.(value);
@@ -18,9 +19,9 @@ const SearchBar = ({
 
 
   return (
-    <div className={` select-container ${className} ${disabled && "disabled"}`}>
+    <div className={` search-bar-container ${className} ${disabled && "disabled"}`}>
       {title && <div className="title">{title}</div>}
-      <Input value={searchValue} onChange={onChangeInput} />
+      <Input value={searchValue} onChange={onChangeInput} placeholder={placeholder}/>
       <div className={`dropdown-body ${seuggets?.length && "open"}`}>
         {seuggets?.map((item, key) => (
           <div
@@ -45,6 +46,7 @@ SearchBar.propTypes = {
   searchValue: PropTypes.string,
   onChangeInput: PropTypes.func,
   className: PropTypes.string,
+  placeholder: PropTypes.string,
   onSelectItem: PropTypes.func,
   defaultMessage: PropTypes.string,
   title: PropTypes.string,
