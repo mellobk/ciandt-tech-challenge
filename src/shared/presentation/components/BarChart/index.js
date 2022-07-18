@@ -20,10 +20,11 @@ const ChartApp = ({
       
       
   return (
-    <div className=''>
+    <div className='chart-container'>
        <BarChart
-      width={600}
+      width={320}
       height={300}
+      className='barchart'
       data={dataChart}
       margin={{
         top: 5,
