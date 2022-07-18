@@ -24,7 +24,7 @@ const PokemonLayauot = ({children, pokemons, placeholder}) => {
 
   useEffect(() => {
     const pokemonsFilter = pokemons.filter((data) =>
-      data.name.includes(debounceValue)
+      data.name.includes(debounceValue.toLocaleLowerCase())
     );
     setSuggestedData(pokemonsFilter);
     return ()=>{
