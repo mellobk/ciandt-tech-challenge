@@ -23,6 +23,7 @@ const HomePage = () => {
   const [searchValue, setSearchValue] = useState("");
   const [suggestedData, setSuggestedData] = useState([]);
   const queryDebounce = useDebounce(debounceValue, 500);
+  
 
   useEffect(() => {
     const pokemonsFilter = pokemons.filter((data) =>
@@ -44,26 +45,33 @@ const HomePage = () => {
 
   return (
     <div className="home-main-container">
+
+      <div className="header">
+       <div className="title">POKEDEX</div>
       <SearchBar
         onChangeInput={(e) => {
           handleOnchange(e.target.value);
         }}
         seuggets={suggestedData}
+        placeholder="Busca a tu pokemon"
         onSelectItem={handleSelectItem}
         searchValue={searchValue}
       />
+      </div>
+    
 
       {loading && <Loader />}
       {!isEmptyObject(selectedPokemon) && (
-        <>
+        <div className="cards">
           <PokemonDetailsCard
             name={selectedPokemon?.species?.name}
             types={selectedPokemon?.types}
             picture={selectedPokemon?.sprites?.other.dream_world.front_default}
+            abilities={selectedPokemon?.abilities}
           />
 
           <SkillDetailsCard  stats={selectedPokemon?.stats}/>
-        </>
+        </div>
       )}
     </div>
   );
