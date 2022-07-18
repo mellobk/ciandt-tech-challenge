@@ -1,5 +1,6 @@
 import { createSelector } from "@reduxjs/toolkit";
 
+
 export const homeState = (state) => state.home;
 
 export const suggestedSearch = createSelector(homeState, (home) => {
@@ -19,3 +20,10 @@ export const fecthedPokemon = createSelector(homeState, (home) => {
 
   return selectedPokemon;
 });
+
+
+export const favouritesPokemons = createSelector(homeState, (home) => {
+	const { favouritePokemon } = home;
+    return favouritePokemon;
+
+  });

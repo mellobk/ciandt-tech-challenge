@@ -22,7 +22,7 @@ const SearchBar = ({
     <div className={` search-bar-container ${className} ${disabled && "disabled"}`}>
       {title && <div className="title">{title}</div>}
       <Input value={searchValue} onChange={onChangeInput} placeholder={placeholder}/>
-      <div className={`dropdown-body ${seuggets?.length && "open"}`}>
+      <div className={`dropdown-body ${(seuggets?.length && searchValue) && "open"}`}>
         {seuggets?.map((item, key) => (
           <div
             aria-hidden="true"

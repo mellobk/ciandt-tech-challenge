@@ -1,7 +1,8 @@
 import AdminLayout from "../../../shared/presentation/layouts/AdminLayout";
 import appRoute from "../../../shared/presentation/redirect-route";
+import Favourite from "../presentation/pages/Favourite";
 import Home from "../presentation/pages/Home";
-import { homeRoute } from "./routes";
+import { favouritesRoute, homeRoute } from "./routes";
 
 const homeRouter = {
 	
@@ -9,6 +10,14 @@ const homeRouter = {
 		{
 			path: homeRoute,
 			page: Home,
+			routeComponent: appRoute,
+			layout: AdminLayout,
+			exact: true,
+		
+		},
+		{
+			path: favouritesRoute,
+			page: Favourite,
 			routeComponent: appRoute,
 			layout: AdminLayout,
 			exact: true,
