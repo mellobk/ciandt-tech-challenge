@@ -25,13 +25,13 @@ const HomePage = () => {
   }, []);
 
   return (
-    <PokemonLayauot pokemons={pokemons}>
+    <PokemonLayauot pokemons={pokemons} placeholder='Busca tu pokemon'>
       {!isEmptyObject(selectedPokemon) && (
         <div className="cards">
           <PokemonDetailsCard
             pokemonData={selectedPokemon}
             favourite={myfavouritesPokemons}
-            name={selectedPokemon?.species?.name}
+            name={selectedPokemon?.name}
             types={selectedPokemon?.types}
             picture={selectedPokemon?.sprites?.other.dream_world.front_default}
             abilities={selectedPokemon?.abilities}
