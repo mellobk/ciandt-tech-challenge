@@ -31,13 +31,13 @@ const Favourite = () => {
 
   return (
   
-    <PokemonLayauot pokemons={pokemons}>
+    <PokemonLayauot pokemons={pokemons} placeholder='Busca entre tus pokemones favoritos'>
           <div className="cards">
         {!isEmptyObject(selectedPokemon)?<>
            <PokemonDetailsCard
             pokemonData={selectedPokemon}
             favourite={myfavouritesPokemons}
-            name={selectedPokemon?.species?.name}
+            name={selectedPokemon?.name}
             types={selectedPokemon?.types}
             picture={selectedPokemon?.sprites?.other.dream_world.front_default}
             abilities={selectedPokemon?.abilities}
@@ -53,7 +53,7 @@ const Favourite = () => {
               <PokemonDetailsCard
                 pokemonData={data}
                 favourite={myfavouritesPokemons}
-                name={data?.species?.name}
+                name={data?.name}
                 types={data?.types}
                 picture={
                   data?.sprites?.other.dream_world.front_default

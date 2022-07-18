@@ -12,7 +12,7 @@ import { getFetchPokemon } from "../../../application/slices/home";
 import "./PokemonLayauot.scss";
 import menu from "../../../../../shared/application/constants/menu";
 
-const PokemonLayauot = ({children, pokemons}) => {
+const PokemonLayauot = ({children, pokemons, placeholder}) => {
   const dispatch = useDispatch();
 
 
@@ -27,6 +27,9 @@ const PokemonLayauot = ({children, pokemons}) => {
       data.name.includes(debounceValue)
     );
     setSuggestedData(pokemonsFilter);
+    return ()=>{
+
+    }
   }, [queryDebounce]);
 
   const handleSelectItem = (value) => {
@@ -62,7 +65,7 @@ const PokemonLayauot = ({children, pokemons}) => {
           handleOnchange(e.target.value);
         }}
         seuggets={suggestedData}
-        placeholder="Busca a tu pokemon"
+        placeholder={placeholder}
         onSelectItem={handleSelectItem}
         searchValue={searchValue}
       />
@@ -80,6 +83,7 @@ const PokemonLayauot = ({children, pokemons}) => {
 PokemonLayauot.propTypes = {
   children: PropTypes.node,
   pokemons: PropTypes.array,
+  placeholder : PropTypes.string,
 
 };
 
