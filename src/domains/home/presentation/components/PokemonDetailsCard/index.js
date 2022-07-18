@@ -27,7 +27,7 @@ const PokemonDetailsCard = ({
     } else {
       setItsFavourite(false);
     }
-  }, [myfavouritesPokemons]);
+  }, [myfavouritesPokemons, name]);
 
   const onClickHandle = () => {
     dispatch(setFavouritePokemon(pokemonData));
